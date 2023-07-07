@@ -1,0 +1,339 @@
+Resultados finales gnn 1:
+loss: 18.1821
+mae: 1.1243
+val_loss: 7.7553
+val_mae: 0.9546
+
+Resultados iniciales gnn 2:
+loss: 8.9588
+mae: 1.6738
+val_loss: 7.5129
+val_mae: 1.3822
+
+Resultados finales gnn 2:
+loss: 2.8191
+mae: 1.2526
+val_loss: 2.9017
+val_mae: 1.2618
+
+
+Mantener fijo epochs 10, batch size 64, num_hidden=512, l2_reg=0.001, learning_rate=1e-5
+
+Layers: 1
+Epoch 1/10
+45/45 [==============================] - 2s 34ms/step - loss: 2.7752 - mae: 1.2919 - val_loss: 1.3143 - val_mae: 0.9151
+Epoch 10/10
+45/45 [==============================] - 1s 28ms/step - loss: 1.5495 - mae: 0.9728 - val_loss: 1.2362 - val_mae: 0.8593
+MAPE: 241.11116
+
+layers: 3
+Epoch 1/10
+45/45 [==============================] - 5s 97ms/step - loss: 4.2211 - mae: 1.4154 - val_loss: 3.0540 - val_mae: 1.1431
+Epoch 10/10
+45/45 [==============================] - 4s 93ms/step - loss: 3.2898 - mae: 1.1915 - val_loss: 2.6341 - val_mae: 1.0517
+MAPE: 340.180603
+
+
+layers: 5
+Epoch 1/10
+45/45 [==============================] - 7s 128ms/step - loss: 4.6393 - mae: 1.3866 - val_loss: 3.5680 - val_mae: 1.1478
+Epoch 10/10
+45/45 [==============================] - 5s 121ms/step - loss: 4.0521 - mae: 1.2498 - val_loss: 2.9154 - val_mae: 0.9313
+MAPE: 281.325684
+
+layers: 6
+Epoch 1/10
+45/45 [==============================] - 11s 213ms/step - loss: 6.0772 - mae: 1.4723 - val_loss: 7.3472 - val_mae: 1.8902
+Epoch 10/10
+45/45 [==============================] - 9s 190ms/step - loss: 5.6155 - mae: 1.3880 - val_loss: 4.9414 - val_mae: 1.3265
+MAPE: 455.515808
+
+layers: 9
+Epoch 1/10
+45/45 [==============================] - 15s 286ms/step - loss: 7.8952 - mae: 1.5298 - val_loss: 11.0147 - val_mae: 2.2838
+Epoch 10/10
+45/45 [==============================] - 14s 310ms/step - loss: 7.2800 - mae: 1.4032 - val_loss: 8.5327 - val_mae: 1.7794
+MAPE: 626.14978
+
+
+ACTIVACION 
+
+relu
+MAPE: 170.67570686340332
+
+gelu
+MAPE: 106.89229965209961
+
+tanh
+MAPE: 187.99086809158325
+
+sigmoid
+MAPE: 403.7385463714599
+
+relu6
+MAPE: 222.04246520996094
+
+softmax
+MAPE: 257.9305171966553
+
+identity o linear
+MAPE: 182.3928952217102
+
+swish
+MAPE: 139.66600894927979
+
+softplus
+MAPE: 181.38552904129028
+
+elu
+MAPE: 189.30935859680176
+
+
+L2_REG
+
+l2_reg=0.01
+MAPE: 304.593825340271
+
+l2_reg=0.001
+MAPE: 106.89229965209961
+
+l2_reg=0.0001
+MAPE: 311.4668607711792
+
+HIDDEN LAYERS
+
+256 hidden:
+MAPE: 171.60338163375854
+
+512 hidden:
+MAPE: 207.33497142791748
+
+1024 hidden:
+MAPE: 106.89229965209961
+
+2048 hidden:
+MAPE: 247.02880382537842
+
+lr e^-2
+MAPE: 433.62202644348145
+
+lr e^-3
+MAPE: 144.92905139923096
+
+lr e^-4
+MAPE: 106.89229965209961
+
+lr e^-5
+MAPE: 190.36736488342285
+
+
+Mejor hasta el momento:
+lr e^-4, 1024 hidden, l2_reg=0.001, layers: 4, batch size: 64, gelu
+Epoch 1/10
+45/45 [==============================] - 17s 350ms/step - loss: 7.3014 - mae: 1.6143 - val_loss: 4.7017 - val_mae: 1.0991
+Epoch 10/10
+45/45 [==============================] - 16s 349ms/step - loss: 4.5619 - mae: 0.9703 - val_loss: 4.1638 - val_mae: 0.7874
+MAPE: 183.57372283935547
+lr e^-4, 1024 hidden, l2_reg=0.001, layers: 5, batch size: 64, gelu
+Epoch 1/10
+45/45 [==============================] - 23s 472ms/step - loss: 7.9483 - mae: 1.5294 - val_loss: 5.4355 - val_mae: 0.9682
+MAPE:
+
+
+OPTIMIZADOR
+
+Adam 
+MAPE: 106.89
+Cambio de percentile datos
+MAPE: 495.42222023010254
+Cambio de percentile datos (50 y 95)
+192.36820936203003
+
+SGD
+MAPE: 513.020133972168
+
+Adagrad
+MAPE: 436.01202964782715
+
+RMSprop
+MAPE: 108.69619846343994
+
+Final Adam vs RMSprop:
+MAPE Adam: 192.36820936203003
+MAPE RMSprop: 297.75657653808594
+
+Normalizar:
+MAPE Adam: 5749.811935424805
+
+layers 7 hidden layers 2048:
+MAPE: 163.50421905517578
+
+EPOCHS
+
+100 (Overfitting)
+Epoch 1/100
+42/42 [==============================] - 19s 403ms/step - loss: 7.6426 - mae: 1.4695 - val_loss: 7.0561 - val_mae: 1.5208
+Epoch 100/100
+42/42 [==============================] - 18s 419ms/step - loss: 2.5670 - mae: 0.2937 - val_loss: 3.2013 - val_mae: 0.6945
+MAPE:
+71.95509672164917
+
+num_hidden=1024, num_layers=4, l2_reg=0.01, learning_rate=1e-4, batch size=64
+Epoch 1/100
+42/42 [==============================] - 16s 353ms/step - loss: 33.7994 - mae: 1.2851 - val_loss: 31.8201 - val_mae: 0.7708
+Epoch 100/100
+42/42 [==============================] - 13s 312ms/step - loss: 1.5989 - mae: 0.3033 - val_loss: 2.2774 - val_mae: 0.7374
+MAPE:
+103.19825410842896
+
+200 (Evitar Overfitting) ** Igual se produjo overfitting
+num_hidden=1024, num_layers=5, l2_reg=0.001, learning_rate=1e-4, batch size=128
+Epoch 1/200
+21/21 [==============================] - 21s 899ms/step - loss: 9.0882 - mae: 1.7771 - val_loss: 8.2617 - val_mae: 1.8250
+Epoch 65/200
+21/21 [==============================] - 20s 962ms/step - loss: 4.3237 - mae: 0.6194 - val_loss: 4.3382 - val_mae: 0.6095
+Epoch 200/200
+21/21 [==============================] - 20s 948ms/step - loss: 2.1771 - mae: 0.2237 - val_loss: 2.8989 - val_mae: 0.7191
+MAPE:
+65.81748723983765
+Predicciones:
+REAL:  [1.762023] PREDICCIÓN:  [1.786939]
+REAL:  [0.3021012] PREDICCIÓN:  [0.6158624]
+REAL:  [0.11907644] PREDICCIÓN:  [0.14406632]
+REAL:  [1.2041563] PREDICCIÓN:  [1.3405974]
+REAL:  [0.99730647] PREDICCIÓN:  [0.99425215]
+REAL:  [0.18653272] PREDICCIÓN:  [0.14157125]
+REAL:  [1.3715154] PREDICCIÓN:  [1.4319892]
+REAL:  [0.9178263] PREDICCIÓN:  [1.0101116]
+REAL:  [1.4506919] PREDICCIÓN:  [1.6578022]
+REAL:  [0.04552869] PREDICCIÓN:  [-0.13052982]
+REAL:  [1.2463582] PREDICCIÓN:  [1.2504485]
+REAL:  [2.423429] PREDICCIÓN:  [2.6472266]
+REAL:  [1.2582012] PREDICCIÓN:  [1.1005292]
+REAL:  [0.60757565] PREDICCIÓN:  [0.62253207]
+REAL:  [0.2466678] PREDICCIÓN:  [0.17406002]
+REAL:  [1.0021833] PREDICCIÓN:  [0.9338097]
+REAL:  [0.9791513] PREDICCIÓN:  [0.7665492]
+REAL:  [0.1470931] PREDICCIÓN:  [-0.04964833]
+REAL:  [0.49819738] PREDICCIÓN:  [0.51362616]
+REAL:  [1.4980453] PREDICCIÓN:  [1.5093315]
+REAL:  [1.0487804] PREDICCIÓN:  [1.0438354]
+REAL:  [0.76867574] PREDICCIÓN:  [0.8350554]
+REAL:  [0.11876822] PREDICCIÓN:  [0.1621606]
+REAL:  [1.5705942] PREDICCIÓN:  [1.4491367]
+REAL:  [0.42099923] PREDICCIÓN:  [0.32442504]
+REAL:  [0.28564125] PREDICCIÓN:  [0.31789333]
+REAL:  [0.09620983] PREDICCIÓN:  [0.06217663]
+REAL:  [0.048593] PREDICCIÓN:  [0.08285486]
+REAL:  [0.35325566] PREDICCIÓN:  [0.4198773]
+REAL:  [0.9224704] PREDICCIÓN:  [0.8226523]
+REAL:  [0.13701043] PREDICCIÓN:  [0.14900526]
+REAL:  [0.21429892] PREDICCIÓN:  [0.18130755]
+REAL:  [0.7348225] PREDICCIÓN:  [0.7862631]
+REAL:  [1.2772254] PREDICCIÓN:  [1.3810289]
+REAL:  [0.8239465] PREDICCIÓN:  [0.79678833]
+REAL:  [1.1801593] PREDICCIÓN:  [1.1766862]
+REAL:  [0.547349] PREDICCIÓN:  [0.47960183]
+REAL:  [0.54715335] PREDICCIÓN:  [0.5381414]
+REAL:  [2.1633954] PREDICCIÓN:  [2.1536891]
+REAL:  [0.7232514] PREDICCIÓN:  [0.85616475]
+REAL:  [1.840094] PREDICCIÓN:  [1.7922263]
+REAL:  [2.0211318] PREDICCIÓN:  [2.2591126]
+REAL:  [2.1196587] PREDICCIÓN:  [2.2956314]
+REAL:  [0.36777642] PREDICCIÓN:  [0.30238545]
+REAL:  [0.87557703] PREDICCIÓN:  [0.98204786]
+REAL:  [1.7701463] PREDICCIÓN:  [1.7156652]
+REAL:  [0.1655349] PREDICCIÓN:  [0.21410795]
+REAL:  [0.72232926] PREDICCIÓN:  [0.6886223]
+REAL:  [0.94765294] PREDICCIÓN:  [0.95347095]
+REAL:  [1.1079512] PREDICCIÓN:  [1.2588642]
+REAL:  [0.522867] PREDICCIÓN:  [0.5356541]
+REAL:  [2.4421887] PREDICCIÓN:  [2.4083526]
+REAL:  [0.38475284] PREDICCIÓN:  [0.34716514]
+REAL:  [0.5280956] PREDICCIÓN:  [0.46944904]
+REAL:  [0.29633677] PREDICCIÓN:  [0.20786302]
+
+
+Ahora con nodos a una distancia menor a 40
+Epoch 1/100
+41/41 [==============================] - 20s 461ms/step - loss: 7.2147 - mae: 1.4091 - val_loss: 6.2528 - val_mae: 1.1320
+Epoch 100/100
+41/41 [==============================] - 17s 423ms/step - loss: 3.1178 - mae: 0.2674 - val_loss: 3.7381 - val_mae: 0.6932
+MAPE: 68.3789610862732
+
+REAL:  [0.77941656] PREDICCIÓN:  [0.7050675]
+REAL:  [0.91614234] PREDICCIÓN:  [0.7463684]
+REAL:  [2.8932807] PREDICCIÓN:  [2.806018]
+REAL:  [1.886421] PREDICCIÓN:  [1.8731205]
+REAL:  [0.20474663] PREDICCIÓN:  [0.22922403]
+REAL:  [1.1172862] PREDICCIÓN:  [0.9036353]
+REAL:  [1.6104841] PREDICCIÓN:  [1.5563009]
+REAL:  [1.0199068] PREDICCIÓN:  [1.015765]
+REAL:  [0.39565644] PREDICCIÓN:  [0.45632637]
+REAL:  [2.0908067] PREDICCIÓN:  [1.881878]
+
+
+
+        # Se agrega la distancia
+        for i in range(n):
+            for j in range(n):
+                # Distancia redondeada
+                distance = round(math.sqrt((x[i] - x[j]) ** 2 + (y[i] - y[j]) ** 2), 1)
+                # Si los nodos están a más de 40 unidades de distancia, no se incluyen en el grafo
+                if distance <= 40:
+                    adj_matrix[i][j] = distance
+                    adj_matrix[j][i] = distance
+
+        adj_matrices.append(adj_matrix)
+
+
+Con los 5 nodos más cercanos y 50 epochs
+Epoch 1/50
+42/42 [==============================] - 20s 435ms/step - loss: 7.3381 - mae: 1.4226 - val_loss: 6.3796 - val_mae: 1.2137
+Epoch 50/50
+42/42 [==============================] - 18s 438ms/step - loss: 4.1255 - mae: 0.4114 - val_loss: 4.6750 - val_mae: 0.7071
+MAPE: 69.6976900100708
+
+
+
+Final Activation (10 EPOCHS):
+
+RELU:
+MAPE: 133.2767128944397
+
+Linear
+MAPE: 239.29951190948486
+
+Linear, Relu
+MAPE: 105.39965629577637
+
+
+
+Resultados SCF. 0.4 Validation mae. * 0.2 instancias
+Epoch 1/50
+74/74 [==============================] - 87s 1s/step - loss: 8.8785 - mae: 1.7231 - val_loss: 6.8047 - val_mae: 1.4437
+Epoch 50/50
+74/74 [==============================] - 84s 1s/step - loss: 3.4442 - mae: 0.4409 - val_loss: 4.7979 - val_mae: 0.9085
+MAPE:
+21.689562499523163
+REAL:  [1.5072939] PREDICCIÓN:  [2.0884821]
+REAL:  [2.037657] PREDICCIÓN:  [1.8543448]
+REAL:  [1.79194] PREDICCIÓN:  [1.4985346]
+REAL:  [1.883616] PREDICCIÓN:  [1.8011242]
+REAL:  [1.707305] PREDICCIÓN:  [1.8984115]
+REAL:  [2.047272] PREDICCIÓN:  [2.043488]
+REAL:  [1.6476071] PREDICCIÓN:  [1.3856583]
+REAL:  [1.8646481] PREDICCIÓN:  [1.4799292]
+REAL:  [1.7121329] PREDICCIÓN:  [1.7812849]
+REAL:  [3.975285] PREDICCIÓN:  [3.6752405]
+
+
+
+
+Double Descent (500 EPOCHS)
+
+
+
+
+
+
